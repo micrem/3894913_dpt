@@ -1,5 +1,5 @@
 public class StationEntrance {
 
-	private FuelDispensers[] fuelDispensers;
+	private FuelDispenser[] fuelDispensers;
 
 }
