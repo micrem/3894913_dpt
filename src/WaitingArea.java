@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Map;
 
 public class WaitingArea {
@@ -44,4 +45,27 @@ public class WaitingArea {
 		}
 		return null;
 	}
+
+    public static void diagonalAssignmentOrder(String args[]) {
+        int pCounter=0;
+        int tCounter=0;
+        double ptRatio;
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("T"); tCounter++;
+        for(int i =0;i<49;i++){
+            ptRatio=((double)pCounter)/tCounter;
+            if( ptRatio<2.333){
+                list.add("P");
+                pCounter++;
+            } else {
+                list.add("T");
+                tCounter++;
+            }
+
+        }
+
+        System.out.println(list.toString());
+        System.out.println("P:"+pCounter);
+        System.out.println("T:"+tCounter);
+    }
 }
