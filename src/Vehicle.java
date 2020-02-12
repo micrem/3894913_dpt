@@ -1,10 +1,14 @@
-public class Vehicle {
+import FuelDispenser.FuelType;
 
-	private FuelType fuelType;
+import java.util.Random;
+
+public class Vehicle {
+	private static Random random = new Random();
+
+	private FuelType fuelType= FuelType.values()[random.nextInt(4)];
 	private VehicleType vehicleType;
 
-	public Vehicle(FuelType fuelType, VehicleType vehicleType) {
-		this.fuelType = fuelType;
+	public Vehicle( VehicleType vehicleType) {
 		this.vehicleType = vehicleType;
 	}
 }
