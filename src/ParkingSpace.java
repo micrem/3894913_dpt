@@ -1,14 +1,14 @@
 public class ParkingSpace {
 
 	private Vehicle vehicle;
-	private String id;
+	private String name;
 
-	public ParkingSpace(String id) {
-		this.id = id;
+	public ParkingSpace(String name) {
+		this.name = name;
 	}
 
-	public String getId() {
-		return id;
+	public String getName() {
+		return name;
 	}
 
 	public Vehicle getVehicle() {

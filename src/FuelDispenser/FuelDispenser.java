@@ -1,9 +1,11 @@
 package FuelDispenser;
 
+import java.awt.*;
+
 public class FuelDispenser implements ISensorListener {
 
 	private FuelDispenser successor;
-	private DispenserState state;
+	private IDispenserState state;
 	private Button[] buttons;
 
 	/**
