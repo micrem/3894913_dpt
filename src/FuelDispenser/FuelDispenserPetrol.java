@@ -1,4 +1,6 @@
-public class FuelDispenserElectric extends FuelDispenser {
+package FuelDispenser;
+
+public class FuelDispenserPetrol extends FuelDispenser {
 
 	private FuelDispenser successor;
 
@@ -7,7 +9,7 @@ public class FuelDispenserElectric extends FuelDispenser {
 	 * @param fuelType
 	 */
 	public void canHandleCar(FuelType fuelType) {
-		// TODO - implement FuelDispenserElectric.canHandleCar
+		// TODO - implement FuelDispenser.FuelDispenserPetrol.canHandleCar
 		throw new UnsupportedOperationException();
 	}
 

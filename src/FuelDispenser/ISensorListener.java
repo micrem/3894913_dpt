@@ -1,3 +1,5 @@
+package FuelDispenser;
+
 public interface ISensorListener {
 
 	/**

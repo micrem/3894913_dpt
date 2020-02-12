@@ -1,3 +1,5 @@
+package FuelDispenser;
+
 public class FuelDispenser implements ISensorListener {
 
 	private FuelDispenser successor;
@@ -9,22 +11,22 @@ public class FuelDispenser implements ISensorListener {
 	 * @param fuelType
 	 */
 	public void canHandleCar(FuelType fuelType) {
-		// TODO - implement FuelDispenser.canHandleCar
+		// TODO - implement FuelDispenser.FuelDispenser.canHandleCar
 		throw new UnsupportedOperationException();
 	}
 
 	public void pressB01() {
-		// TODO - implement FuelDispenser.pressB01
+		// TODO - implement FuelDispenser.FuelDispenser.pressB01
 		throw new UnsupportedOperationException();
 	}
 
 	public void pressB02() {
-		// TODO - implement FuelDispenser.pressB02
+		// TODO - implement FuelDispenser.FuelDispenser.pressB02
 		throw new UnsupportedOperationException();
 	}
 
 	public void pressB03() {
-		// TODO - implement FuelDispenser.pressB03
+		// TODO - implement FuelDispenser.FuelDispenser.pressB03
 		throw new UnsupportedOperationException();
 	}
 
@@ -33,7 +35,7 @@ public class FuelDispenser implements ISensorListener {
 	 * @param connected
 	 */
 	public void sensorSignal(boolean connected) {
-		// TODO - implement FuelDispenser.sensorSignal
+		// TODO - implement FuelDispenser.FuelDispenser.sensorSignal
 		throw new UnsupportedOperationException();
 	}
 

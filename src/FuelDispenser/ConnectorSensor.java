@@ -1,3 +1,5 @@
+package FuelDispenser;
+
 import java.util.ArrayList;
 
 public class ConnectorSensor {
@@ -5,12 +7,12 @@ public class ConnectorSensor {
 	private ArrayList<ISensorListener> listeners;
 
 	public void connected() {
-		// TODO - implement ConnectorSensor.connected
+		// TODO - implement FuelDispenser.ConnectorSensor.connected
 		throw new UnsupportedOperationException();
 	}
 
 	public void disconnected() {
-		// TODO - implement ConnectorSensor.disconnected
+		// TODO - implement FuelDispenser.ConnectorSensor.disconnected
 		throw new UnsupportedOperationException();
 	}
 
@@ -19,7 +21,7 @@ public class ConnectorSensor {
 	 * @param listener
 	 */
 	public void addListener(ISensorListener listener) {
-		// TODO - implement ConnectorSensor.addListener
+		// TODO - implement FuelDispenser.ConnectorSensor.addListener
 		throw new UnsupportedOperationException();
 	}
 
@@ -28,7 +30,7 @@ public class ConnectorSensor {
 	 * @param listener
 	 */
 	public void removeListener(ISensorListener listener) {
-		// TODO - implement ConnectorSensor.removeListener
+		// TODO - implement FuelDispenser.ConnectorSensor.removeListener
 		throw new UnsupportedOperationException();
 	}
 

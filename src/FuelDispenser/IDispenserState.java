@@ -1,3 +1,5 @@
+package FuelDispenser;
+
 public interface IDispenserState {
 
 	void pressB01();

@@ -1,12 +1,14 @@
-public class S0 implements IDispenserState {
+package FuelDispenser;
+
+public class S2 implements IDispenserState {
 
 	public void pressB01() {
-		// TODO - implement S0.pressB01
+		// TODO - implement FuelDispenser.S2.pressB01
 		throw new UnsupportedOperationException();
 	}
 
 	public void pressB02() {
-		// TODO - implement S0.pressB02
+		// TODO - implement FuelDispenser.S2.pressB02
 		throw new UnsupportedOperationException();
 	}
 
@@ -15,7 +17,7 @@ public class S0 implements IDispenserState {
 	 * @param fuelDispenser
 	 */
 	public void pressB03(FuelDispenser fuelDispenser) {
-		// TODO - implement S0.pressB03
+		// TODO - implement FuelDispenser.S2.pressB03
 		throw new UnsupportedOperationException();
 	}
 
@@ -24,7 +26,7 @@ public class S0 implements IDispenserState {
 	 * @param connected
 	 */
 	public void sensorSignal(boolean connected) {
-		// TODO - implement S0.sensorSignal
+		// TODO - implement FuelDispenser.S2.sensorSignal
 		throw new UnsupportedOperationException();
 	}
 
