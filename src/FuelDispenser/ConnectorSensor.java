@@ -7,13 +7,17 @@ public class ConnectorSensor {
 	private ArrayList<ISensorListener> listeners;
 
 	public void connected() {
-		// TODO - implement FuelDispenser.ConnectorSensor.connected
-		throw new UnsupportedOperationException();
+		for (ISensorListener listener :
+				listeners) {
+			listener.sensorSignal(true);
+		}
 	}
 
 	public void disconnected() {
-		// TODO - implement FuelDispenser.ConnectorSensor.disconnected
-		throw new UnsupportedOperationException();
+		for (ISensorListener listener :
+				listeners) {
+			listener.sensorSignal(false);
+		}
 	}
 
 	/**
@@ -21,8 +25,7 @@ public class ConnectorSensor {
 	 * @param listener
 	 */
 	public void addListener(ISensorListener listener) {
-		// TODO - implement FuelDispenser.ConnectorSensor.addListener
-		throw new UnsupportedOperationException();
+		listeners.add(listener);
 	}
 
 	/**
@@ -30,8 +33,7 @@ public class ConnectorSensor {
 	 * @param listener
 	 */
 	public void removeListener(ISensorListener listener) {
-		// TODO - implement FuelDispenser.ConnectorSensor.removeListener
-		throw new UnsupportedOperationException();
+		listeners.remove(listener);
 	}
 
 }

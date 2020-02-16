@@ -1,3 +1,5 @@
+package FuelStation;
+
 public class FuelStation {
 
 	private StationEntrance entranceCar;

@@ -3,13 +3,11 @@ package FuelDispenser;
 public class S0 implements IDispenserState {
 
 	public void pressB01() {
-		// TODO - implement FuelDispenser.S0.pressB01
-		throw new UnsupportedOperationException();
+
 	}
 
 	public void pressB02() {
-		// TODO - implement FuelDispenser.S0.pressB02
-		throw new UnsupportedOperationException();
+
 	}
 
 	/**
@@ -17,8 +15,8 @@ public class S0 implements IDispenserState {
 	 * @param fuelDispenser
 	 */
 	public void pressB03(FuelDispenser fuelDispenser) {
-		// TODO - implement FuelDispenser.S0.pressB03
-		throw new UnsupportedOperationException();
+		fuelDispenser.setState(new S1());
+		fuelDispenser.getState().pressB03(fuelDispenser); //dirty solution
 	}
 
 	/**
@@ -26,8 +24,6 @@ public class S0 implements IDispenserState {
 	 * @param connected
 	 */
 	public void sensorSignal(boolean connected) {
-		// TODO - implement FuelDispenser.S0.sensorSignal
-		throw new UnsupportedOperationException();
 	}
 
 }

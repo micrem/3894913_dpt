@@ -1,35 +1,28 @@
 package FuelDispenser;
 
-import java.awt.*;
+import FuelStation.IVehicle;
 
-public class FuelDispenser implements ISensorListener {
+public abstract class FuelDispenser implements ISensorListener {
 
 	private FuelDispenser successor;
 	private IDispenserState state;
-	private Button[] buttons;
 
 	/**
-	 * 
-	 * @param fuelType
+	 *
+	 * @param iVehicle
 	 */
-	public void canHandleCar(FuelType fuelType) {
-		// TODO - implement FuelDispenser.FuelDispenser.canHandleCar
-		throw new UnsupportedOperationException();
-	}
+	public abstract void handleVehicle(IVehicle iVehicle);
 
 	public void pressB01() {
-		// TODO - implement FuelDispenser.FuelDispenser.pressB01
-		throw new UnsupportedOperationException();
+		state.pressB01();
 	}
 
 	public void pressB02() {
-		// TODO - implement FuelDispenser.FuelDispenser.pressB02
-		throw new UnsupportedOperationException();
+		state.pressB02();
 	}
 
 	public void pressB03() {
-		// TODO - implement FuelDispenser.FuelDispenser.pressB03
-		throw new UnsupportedOperationException();
+		state.pressB03(this);
 	}
 
 	/**
@@ -41,4 +34,23 @@ public class FuelDispenser implements ISensorListener {
 		throw new UnsupportedOperationException();
 	}
 
+	public FuelDispenser getSuccessor() {
+		return successor;
+	}
+
+	public void setSuccessor(FuelDispenser successor) {
+		this.successor = successor;
+	}
+
+	public IDispenserState getState() {
+		return state;
+	}
+
+	public void setState(IDispenserState state) {
+		this.state = state;
+	}
+
+    public void fillVehicle(int ammount) {
+
+    }
 }

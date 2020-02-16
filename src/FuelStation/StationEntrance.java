@@ -1,3 +1,5 @@
+package FuelStation;
+
 import FuelDispenser.FuelDispenser;
 
 public class StationEntrance {

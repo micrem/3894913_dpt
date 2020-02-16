@@ -1,14 +1,15 @@
 package FuelDispenser;
+import FuelStation.IVehicle;
 
 public class FuelDispenserElectric extends FuelDispenser {
 
 	private FuelDispenser successor;
 
 	/**
-	 * 
-	 * @param fuelType
+	 *
+	 * @param IVehicle
 	 */
-	public void canHandleCar(FuelType fuelType) {
+	public void handleVehicle(IVehicle IVehicle) {
 		// TODO - implement FuelDispenser.FuelDispenserElectric.canHandleCar
 		throw new UnsupportedOperationException();
 	}
