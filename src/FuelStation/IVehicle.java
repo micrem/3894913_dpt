@@ -1,6 +1,6 @@
 package FuelStation;
 
-import FuelDispenser.FuelType;
+import FuelPump.FuelType;
 
 public interface IVehicle {
     FuelType getFuelType();

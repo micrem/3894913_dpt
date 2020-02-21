@@ -1,26 +1,29 @@
 package FuelStation;
 
-import FuelDispenser.FuelDispenser;
-import FuelDispenser.*;
+import FuelPump.FuelPump;
+import FuelPump.*;
 
 public class StationEntrance {
 
-	private FuelDispenser[] fuelDispensers;
+	private IFuelPump[] fuelPumps;
 
 	public StationEntrance() {
-		fuelDispensers = new FuelDispenser[6];
+		fuelPumps = new FuelPump[6];
 		int i;
 		for (i = 0; i < 3; i++) {
-			fuelDispensers[i] = new FuelDispenserElectric();
+			fuelPumps[i] = new FuelPumpElectric();
 		}
-		fuelDispensers[i++] = new FuelDispenserDiesel();
-		fuelDispensers[i++] = new FuelDispenserGas();
-		fuelDispensers[i++] = new FuelDispenserPetrol();
+		fuelPumps[i++] = new FuelPumpDiesel();
+		fuelPumps[i++] = new FuelPumpGas();
+		fuelPumps[i++] = new FuelPumpPetrol();
 		for (int j = 0; j < 5; j++) {
-			fuelDispensers[j].setSuccessor(fuelDispensers[j+1]);
+			fuelPumps[j].setSuccessor(fuelPumps[j+1]);
 		}
 	}
 	void handleVehicle(IVehicle vehicle){
-		fuelDispensers[0].handleVehicle(vehicle);
+		IFuelPump fuelPump = fuelPumps[0].getCompatibleFuelstation(vehicle);
+        fuelPump.pressB03(); //initiate refuel
+		fuelPump.attachFueltap(vehicle);
+		fuelPump.pressB03(); //pay
 	}
 }

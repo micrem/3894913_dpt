@@ -1,6 +1,6 @@
-package FuelDispenser;
+package FuelPump;
 
-public interface IDispenserState {
+public interface IFuelPumpState {
 
 	void pressB01();
 
@@ -8,9 +8,9 @@ public interface IDispenserState {
 
 	/**
 	 * 
-	 * @param fuelDispenser
+	 * @param fuelPump
 	 */
-	void pressB03(FuelDispenser fuelDispenser);
+	void pressB03(IFuelPump fuelPump);
 
 	/**
 	 * 

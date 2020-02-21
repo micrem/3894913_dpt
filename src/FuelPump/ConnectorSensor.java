@@ -1,4 +1,4 @@
-package FuelDispenser;
+package FuelPump;
 
 import java.util.ArrayList;
 

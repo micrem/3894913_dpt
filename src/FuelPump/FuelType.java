@@ -1,4 +1,4 @@
-package FuelDispenser;
+package FuelPump;
 
 public enum FuelType {
 	Electric,

@@ -1,6 +1,9 @@
-package FuelDispenser;
+package FuelPump;
 
-public class S2 implements IDispenserState {
+/**
+ * state: awaiting payment
+ */
+public class S2 implements IFuelPumpState {
 	private PaymentMethod paymentMethod=PaymentMethod.Credit;
 
 	public void pressB01() {
@@ -13,11 +16,11 @@ public class S2 implements IDispenserState {
 
 	/**
 	 * 
-	 * @param fuelDispenser
+	 * @param fuelPump
 	 */
-	public void pressB03(FuelDispenser fuelDispenser) {
+	public void pressB03(IFuelPump fuelPump) {
 		System.out.println("Paid with "+paymentMethod);
-		fuelDispenser.setState(new S0());
+		fuelPump.setState(new S0());
 	}
 
 	/**
