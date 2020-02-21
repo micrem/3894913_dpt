@@ -6,11 +6,8 @@ public class FuelStation {
 	private StationEntrance entranceTruck;
 	private WaitingArea waitingArea;
 
-    public FuelStation(boolean initialze) {
-        if (initialze) init();
-    }
-
     public FuelStation() {
+        initComponents();
     }
 
     public StationEntrance getEntranceCar() {
@@ -37,7 +34,7 @@ public class FuelStation {
         this.waitingArea = waitingArea;
     }
 
-    private void init(){
+    private void initComponents(){
         if (entranceCar == null) {
             entranceCar = new StationEntrance();
         }
@@ -48,4 +45,20 @@ public class FuelStation {
             waitingArea = new WaitingArea();
         }
     }
+
+    public void handleVehicle(IVehicle vehicle){
+        VehicleType vehicleType = vehicle.getVehicleType();
+        switch (vehicleType){
+            case Car:
+                entranceCar.handleVehicle(vehicle);
+                break;
+            case Truck:
+                entranceTruck.handleVehicle(vehicle);
+                break;
+            default:
+                break;
+        }
+    }
+
+
 }

@@ -7,11 +7,13 @@ public class FuelDispenserElectric extends FuelDispenser {
 
 	/**
 	 *
-	 * @param IVehicle
+	 * @param vehicle
 	 */
-	public void handleVehicle(IVehicle IVehicle) {
-		// TODO - implement FuelDispenser.FuelDispenserElectric.canHandleCar
-		throw new UnsupportedOperationException();
+	public void handleVehicle(IVehicle vehicle) {
+		if (vehicle.getFuelType()!=FuelType.Electric){
+			successor.handleVehicle(vehicle);
+		}
+
 	}
 
 }

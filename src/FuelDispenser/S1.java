@@ -1,15 +1,15 @@
 package FuelDispenser;
 
 public class S1 implements IDispenserState {
-	int fuelAmmount = 25;
+	int fuelAmount = 25;
 	FuelDispenser fuelDispenser;
 
 	public void pressB01() {
-		fuelAmmount=Math.min(fuelAmmount+5,50);
+		fuelAmount =Math.min(fuelAmount +5,50);
 	}
 
 	public void pressB02() {
-		fuelAmmount=Math.max(fuelAmmount-5,0);
+		fuelAmount =Math.max(fuelAmount -5,0);
 	}
 
 	/**
@@ -26,7 +26,7 @@ public class S1 implements IDispenserState {
 	 */
 	public void sensorSignal(boolean connected) {
 		if(connected){
-		    fuelDispenser.fillVehicle(fuelAmmount);
+		    fuelDispenser.fillVehicle(fuelAmount);
             fuelDispenser.setState(new S2());
         }
 	}
