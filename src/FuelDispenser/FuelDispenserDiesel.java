@@ -6,13 +6,9 @@ public class FuelDispenserDiesel extends FuelDispenser {
 
 	private FuelDispenser successor;
 
-
-	public void handleVehicle(IVehicle iVehicle) {
-		if (iVehicle.getFuelType()!=FuelType.Diesel){
-			successor.handleVehicle(iVehicle);
-			return ;
-		}
-	}
+    public FuelType getFuelType(){
+        return FuelType.Diesel;
+    }
 
 
 

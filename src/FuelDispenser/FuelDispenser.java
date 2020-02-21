@@ -10,8 +10,17 @@ public abstract class FuelDispenser implements ISensorListener {
 	/**
 	 *
 	 * @param iVehicle
-	 */
-	public abstract void handleVehicle(IVehicle iVehicle);
+     */
+    public void getCompatibleFuelstation(IVehicle iVehicle) {
+        if (iVehicle.getFuelType() != FuelType.Diesel) {
+            if (successor == null){
+                throw new UnsupportedOperationException("Station can not handle fuel type:"+iVehicle.getFuelType());
+            }
+            successor.getCompatibleFuelstation(iVehicle);
+            return;
+        }
+
+    }
 
 	public void pressB01() {
 		state.pressB01();
@@ -30,8 +39,7 @@ public abstract class FuelDispenser implements ISensorListener {
 	 * @param connected
 	 */
 	public void sensorSignal(boolean connected) {
-		// TODO - implement FuelDispenser.FuelDispenser.sensorSignal
-		throw new UnsupportedOperationException();
+		state.sensorSignal(connected);
 	}
 
 	public FuelDispenser getSuccessor() {
@@ -51,6 +59,7 @@ public abstract class FuelDispenser implements ISensorListener {
 	}
 
     public void fillVehicle(int ammount) {
-
     }
+
+    public abstract FuelType getFuelType();
 }
