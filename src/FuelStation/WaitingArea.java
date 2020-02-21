@@ -61,6 +61,12 @@ public class WaitingArea implements  IWaitingArea{
 		return null;
 	}
 
+    /**
+     * generates order for car-truck generation to keep correct ratio between those types
+     * intended for initialisation of rectangular (5x10) parking-lot with correct ratios
+     * while allowing traversal of lot in any direction by any index (distance from top-left or 1-50)
+     * @return
+     */
     public ArrayList<VehicleType> getMixedParkingSpaceOrder() {
         int pCounter=0;
         int tCounter=0;
