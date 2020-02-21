@@ -3,6 +3,9 @@ package FuelStation;
 import FuelPump.FuelPump;
 import FuelPump.*;
 
+import java.time.Instant;
+import java.util.Random;
+
 public class StationEntrance {
 
 	private IFuelPump[] fuelPumps;
@@ -21,9 +24,16 @@ public class StationEntrance {
 		}
 	}
 	void handleVehicle(IVehicle vehicle){
+        Random r = new Random();
 		IFuelPump fuelPump = fuelPumps[0].getCompatibleFuelstation(vehicle);
+        r.setSeed(Instant.now().getNano());
+
         fuelPump.pressB03(); //initiate refuel
+        for (int i = r.nextInt(4); i >0 ; i--) { //adjust fuel amount
+            if(r.nextBoolean()){fuelPump.pressB01();} else {fuelPump.pressB02();}
+        }
 		fuelPump.attachFueltap(vehicle);
+        if(r.nextBoolean()){fuelPump.pressB02();} //adjust payment method
 		fuelPump.pressB03(); //pay
 	}
 }

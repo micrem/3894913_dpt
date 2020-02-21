@@ -26,45 +26,69 @@ public class WaitingArea implements  IWaitingArea{
 		//fill to 80% = 40/50
         for (int i = 0; i < 28; i++) {
             addVehicle(new Vehicle(VehicleType.Car));
+            //manage carParkingSpaces array?
         }
         for (int i = 0; i < 12; i++) {
             addVehicle(new Vehicle(VehicleType.Truck));
+            //manage truckParkingSpaces array?
         }
 	}
 
-	public ParkingSpace getParkingSpace(int index) {
-		return index<personalCarMax?carParkingSpaces[index]:truckParkingSpaces[index-personalCarMax];
-	}
+    @Override
+    public boolean isEmpty() {
+        return queue.isEmpty();
+    }
 
-	public ParkingSpace getFreeCarParkingSpace(){
-		for (int i = 0; i < carParkingSpaces.length; i++) {
-			if(carParkingSpaces[i].getVehicle()==null) return carParkingSpaces[i];
-		}
-		return null;
-	}
+    @Override
+    public void addVehicle(IVehicle IVehicle) {
+        queue.add(IVehicle);
+    }
 
-	public ParkingSpace getFreeTruckParkingSpace(){
-		for (int i = 0; i < truckParkingSpaces.length; i++) {
-			if(truckParkingSpaces[i].getVehicle()==null) return truckParkingSpaces[i];
-		}
-		return null;
-	}
 
-	public IVehicle getWaitingVehicle(){
-		for (int i = 0; i < spacesMax; i++) {
-			if (getParkingSpace(i)!=null) {
-				IVehicle IVehicle = getParkingSpace(i).getVehicle();
-				getParkingSpace(i).setVehicle(null);
-				return IVehicle;
-			}
-		}
-		return null;
-	}
+    @Override
+    public IVehicle getNextVehicle() {
+        return queue.isEmpty() ? null : queue.poll();
+    }
+
+    @Override
+    public int getTotalVehicles() {
+        return queue.size();
+    }
+//
+//	public ParkingSpace getParkingSpace(int index) {
+//		return index<personalCarMax?carParkingSpaces[index]:truckParkingSpaces[index-personalCarMax];
+//	}
+//
+//	public ParkingSpace getFreeCarParkingSpace(){
+//		for (int i = 0; i < carParkingSpaces.length; i++) {
+//			if(carParkingSpaces[i].getVehicle()==null) return carParkingSpaces[i];
+//		}
+//		return null;
+//	}
+//
+//	public ParkingSpace getFreeTruckParkingSpace(){
+//		for (int i = 0; i < truckParkingSpaces.length; i++) {
+//			if(truckParkingSpaces[i].getVehicle()==null) return truckParkingSpaces[i];
+//		}
+//		return null;
+//	}
+
+//	public IVehicle getWaitingVehicle(){
+//		for (int i = 0; i < spacesMax; i++) {
+//			if (getParkingSpace(i)!=null) {
+//				IVehicle IVehicle = getParkingSpace(i).getVehicle();
+//				getParkingSpace(i).setVehicle(null);
+//				return IVehicle;
+//			}
+//		}
+//		return null;
+
+//	}
 
     /**
-     * generates order for car-truck generation to keep correct ratio between those types
+     * generates order for car-truck parkinglots to keep correct ratio between the types
      * intended for initialisation of rectangular (5x10) parking-lot with correct ratios
-     * while allowing traversal of lot in any direction by any index (distance from top-left or 1-50)
+     * while allowing traversal of parkinglot in any direction by any index (distance from top-left or 1-50)
      * @return
      */
     public ArrayList<VehicleType> getMixedParkingSpaceOrder() {
@@ -87,18 +111,22 @@ public class WaitingArea implements  IWaitingArea{
         return parkspaceOrder;
     }
 
-    @Override
-    public IVehicle getNextVehicle() {
-        return queue.poll();
-    }
 
-    @Override
-    public boolean hasNextVehicle() {
-        return !queue.isEmpty();
-    }
 
-    @Override
-    public void addVehicle(IVehicle IVehicle) {
-	    queue.add(IVehicle);
-    }
+//    @Override
+//    public IVehicle getNextVehicle(VehicleType type){
+//        if(queue.isEmpty()) return null;
+//        if(queue.peek().getVehicleType()==type) return queue.poll();
+//        Queue<IVehicle> searchQue = new ArrayDeque<>();
+//        //search for type in queue
+//        while (!queue.isEmpty()){
+//            if (queue.peek().getVehicleType() == type) { return queue.poll();}
+//            searchQue.add(queue.poll());
+//        }
+//        //if type found, restore queue and return null
+//        while (!searchQue.isEmpty()){
+//            queue.add(searchQue.poll());
+//        }
+//        return null;
+//    }
 }

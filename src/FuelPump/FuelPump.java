@@ -9,7 +9,7 @@ public abstract class FuelPump implements IFuelPump {
 	private Fueltap fueltap;
 
     public FuelPump() {
-        fueltap = new Fueltap(this);
+        state = new S0();
     }
 
     /**
@@ -73,10 +73,14 @@ public abstract class FuelPump implements IFuelPump {
 
     @Override
     public void fillVehicle(int ammount) {
+        System.out.println("Refuel " +ammount + " units "+getFuelType());
     }
 
     @Override
     public void attachFueltap(IVehicle vehicle) {
+	    //initalising fueltap can't be done in FuelPump constructor,
+        //since 'this' reference is unreliable during constructor execution
+        if(fueltap==null){fueltap = new Fueltap(this);}
         fueltap.connected(vehicle);
     }
 

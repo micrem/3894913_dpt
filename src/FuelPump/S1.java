@@ -1,5 +1,7 @@
 package FuelPump;
 
+import static java.lang.Thread.sleep;
+
 /**
  * state: ready to pump
  */
@@ -31,10 +33,11 @@ public class S1 implements IFuelPumpState {
 		if(connected){
 		    fuelPump.fillVehicle(fuelAmount);
             try {
-                wait((long) (1000 + 2000*Math.random()));
+                sleep((int) (1000 + 2000*Math.random())); //wait 1-3s
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             fuelPump.setState(new S2());
         }
 	}

@@ -4,7 +4,7 @@ public class FuelStation {
 
 	private StationEntrance entranceCar;
 	private StationEntrance entranceTruck;
-	private WaitingArea waitingArea;
+	private IWaitingArea waitingArea;
 
     public FuelStation() {
         initComponents();
@@ -26,7 +26,7 @@ public class FuelStation {
         this.entranceTruck = entranceTruck;
     }
 
-    public WaitingArea getWaitingArea() {
+    public IWaitingArea getWaitingArea() {
         return waitingArea;
     }
 
@@ -46,19 +46,37 @@ public class FuelStation {
         }
     }
 
-    public void handleVehicle(IVehicle vehicle){
-        VehicleType vehicleType = vehicle.getVehicleType();
-        switch (vehicleType){
-            case Car:
-                entranceCar.handleVehicle(vehicle);
-                break;
-            case Truck:
-                entranceTruck.handleVehicle(vehicle);
-                break;
-            default:
-                break;
-        }
+    public void addVehicle(IVehicle vehicle){
+        waitingArea.addVehicle(vehicle);
     }
 
+    /**
+     * attempts to process a car and a truck in each of the entrances
+     * to compensate for lack of parallelisation in overall program
+     */
+    public void processWaitingVehicle() {
+        IVehicle nextVehicle;
+        if (waitingArea.isEmpty()) return;
+        nextVehicle = waitingArea.getNextVehicle();
+        System.out.println("-processing: "+nextVehicle.getVehicleType() + " " +nextVehicle.getFuelType());
+        if(nextVehicle.getVehicleType()==VehicleType.Car) entranceCar.handleVehicle(nextVehicle);
+        if(nextVehicle.getVehicleType()==VehicleType.Truck) entranceTruck.handleVehicle(nextVehicle);
+        //else refuel ship / horse / sled
+        }
 
-}
+        //FIXME multithreading:
+//        IVehicle nextCar = waitingArea.getNextVehicle(VehicleType.Car);
+//        IVehicle nextTruck = waitingArea.getNextVehicle(VehicleType.Truck);
+//
+//        if (nextCar!=null){
+//            // START THREAD HERE:
+//              entranceCar.handleVehicle(nextCar);
+//        }
+//        if (nextTruck!=null){
+//            // START ANOTHER THREAD HERE:
+//          entranceTruck.handleVehicle(nextTruck);
+//        }
+
+ }
+
+

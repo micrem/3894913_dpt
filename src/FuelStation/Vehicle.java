@@ -15,7 +15,12 @@ public class Vehicle implements IVehicle{
 		this.vehicleType = vehicleType;
 	}
 
-	@Override
+    public static IVehicle getRandomVehicle() {
+	    VehicleType newVehicleType = random.nextBoolean() ? VehicleType.Car : VehicleType.Truck;
+        return new Vehicle(newVehicleType);
+    }
+
+    @Override
 	public FuelType getFuelType() {
 		return fuelType;
 	}

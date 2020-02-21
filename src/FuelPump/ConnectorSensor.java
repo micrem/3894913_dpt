@@ -1,10 +1,15 @@
 package FuelPump;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ConnectorSensor {
 
-	private ArrayList<ISensorListener> listeners;
+	private List<ISensorListener> listeners;
+
+	public ConnectorSensor() {
+		this.listeners = new ArrayList<>();
+	}
 
 	public void connected() {
 		for (ISensorListener listener :
