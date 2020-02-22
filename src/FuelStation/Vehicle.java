@@ -4,6 +4,10 @@ import FuelPump.FuelType;
 
 import java.util.Random;
 
+/**
+ * one class for Car and Truck, since there is no functional difference
+ * differentiated by VehicleType parameter
+ */
 public class Vehicle implements IVehicle {
     private static Random random = new Random();
 
