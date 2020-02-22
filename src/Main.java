@@ -1,4 +1,6 @@
-import FuelStation.*;
+import FuelStation.FuelStation;
+import FuelStation.IVehicle;
+import FuelStation.Vehicle;
 
 import java.time.Instant;
 import java.util.Random;
@@ -12,14 +14,14 @@ public class Main {
         Random r = new Random();
 
         Instant timeInstant = Instant.now();
-        while(true){
-            if (Instant.now().isAfter(timeInstant)){
+        while (true) {
+            if (Instant.now().isAfter(timeInstant)) {
                 //add new vehicles
-                timeInstant = Instant.now().plusMillis(1000+r.nextInt(2000));
-                if(r.nextInt(100)<vehicleSpawnChance){ //chance to spawn new vehicles
-                    addVehicles(fuelStation, r.nextInt(3)+1); //1-3 new Vehicles
+                timeInstant = Instant.now().plusMillis(1000 + r.nextInt(2000));
+                if (r.nextInt(100) < vehicleSpawnChance) { //chance to spawn new vehicles
+                    addVehicles(fuelStation, r.nextInt(3) + 1); //1-3 new Vehicles
                 }
-               fuelStation.processWaitingVehicle();
+                fuelStation.processWaitingVehicle();
                 System.out.println(fuelStation.getWaitingArea().getTotalVehicles() + " vehicles waiting");
                 System.out.println();
             }
@@ -29,10 +31,10 @@ public class Main {
     private static void addVehicles(FuelStation fuelStation, int amount) {
         int numberNewVehicles = amount;
         System.out.print("+added : ");
-        for (; numberNewVehicles>0; numberNewVehicles--) {
+        for (; numberNewVehicles > 0; numberNewVehicles--) {
             IVehicle v = Vehicle.getRandomVehicle();
             fuelStation.addVehicle(v);
-            System.out.print(v.getVehicleType()+" ");
+            System.out.print(v.getVehicleType() + " ");
         }
         System.out.println();
     }

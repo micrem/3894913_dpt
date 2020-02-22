@@ -2,20 +2,18 @@ package FuelPump;
 
 public interface IFuelPumpState {
 
-	void pressB01();
+    void pressB01();
 
-	void pressB02();
+    void pressB02();
 
-	/**
-	 * 
-	 * @param fuelPump
-	 */
-	void pressB03(IFuelPump fuelPump);
+    /**
+     * @param fuelPump
+     */
+    void pressB03(IFuelPump fuelPump);
 
-	/**
-	 * 
-	 * @param connected
-	 */
-	void sensorSignal(boolean connected);
+    /**
+     * @param connected
+     */
+    void sensorSignal(boolean connected);
 
 }

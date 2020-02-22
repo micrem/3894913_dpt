@@ -5,40 +5,38 @@ import java.util.List;
 
 public class ConnectorSensor {
 
-	private List<ISensorListener> listeners;
+    private List<ISensorListener> listeners;
 
-	public ConnectorSensor() {
-		this.listeners = new ArrayList<>();
-	}
+    public ConnectorSensor() {
+        this.listeners = new ArrayList<>();
+    }
 
-	public void connected() {
-		for (ISensorListener listener :
-				listeners) {
-			listener.sensorSignal(true);
-		}
-	}
+    public void connected() {
+        for (ISensorListener listener :
+                listeners) {
+            listener.sensorSignal(true);
+        }
+    }
 
-	public void disconnected() {
-		for (ISensorListener listener :
-				listeners) {
-			listener.sensorSignal(false);
-		}
-	}
+    public void disconnected() {
+        for (ISensorListener listener :
+                listeners) {
+            listener.sensorSignal(false);
+        }
+    }
 
-	/**
-	 * 
-	 * @param listener
-	 */
-	public void addListener(ISensorListener listener) {
-		listeners.add(listener);
-	}
+    /**
+     * @param listener
+     */
+    public void addListener(ISensorListener listener) {
+        listeners.add(listener);
+    }
 
-	/**
-	 * 
-	 * @param listener
-	 */
-	public void removeListener(ISensorListener listener) {
-		listeners.remove(listener);
-	}
+    /**
+     * @param listener
+     */
+    public void removeListener(ISensorListener listener) {
+        listeners.remove(listener);
+    }
 
 }

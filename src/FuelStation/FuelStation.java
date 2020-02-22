@@ -2,9 +2,9 @@ package FuelStation;
 
 public class FuelStation {
 
-	private StationEntrance entranceCar;
-	private StationEntrance entranceTruck;
-	private IWaitingArea waitingArea;
+    private StationEntrance entranceCar;
+    private StationEntrance entranceTruck;
+    private IWaitingArea waitingArea;
 
     public FuelStation() {
         initComponents();
@@ -34,7 +34,7 @@ public class FuelStation {
         this.waitingArea = waitingArea;
     }
 
-    private void initComponents(){
+    private void initComponents() {
         if (entranceCar == null) {
             entranceCar = new StationEntrance();
         }
@@ -46,7 +46,7 @@ public class FuelStation {
         }
     }
 
-    public void addVehicle(IVehicle vehicle){
+    public void addVehicle(IVehicle vehicle) {
         waitingArea.addVehicle(vehicle);
     }
 
@@ -58,13 +58,13 @@ public class FuelStation {
         IVehicle nextVehicle;
         if (waitingArea.isEmpty()) return;
         nextVehicle = waitingArea.getNextVehicle();
-        System.out.println("-processing: "+nextVehicle.getVehicleType() + " " +nextVehicle.getFuelType());
-        if(nextVehicle.getVehicleType()==VehicleType.Car) entranceCar.handleVehicle(nextVehicle);
-        if(nextVehicle.getVehicleType()==VehicleType.Truck) entranceTruck.handleVehicle(nextVehicle);
+        System.out.println("-processing: " + nextVehicle.getVehicleType() + " " + nextVehicle.getFuelType());
+        if (nextVehicle.getVehicleType() == VehicleType.Car) entranceCar.handleVehicle(nextVehicle);
+        if (nextVehicle.getVehicleType() == VehicleType.Truck) entranceTruck.handleVehicle(nextVehicle);
         //else refuel ship / horse / sled
-        }
+    }
 
-        //FIXME multithreading:
+    //FIXME multithreading:
 //        IVehicle nextCar = waitingArea.getNextVehicle(VehicleType.Car);
 //        IVehicle nextTruck = waitingArea.getNextVehicle(VehicleType.Truck);
 //
@@ -77,6 +77,6 @@ public class FuelStation {
 //          entranceTruck.handleVehicle(nextTruck);
 //        }
 
- }
+}
 
 
